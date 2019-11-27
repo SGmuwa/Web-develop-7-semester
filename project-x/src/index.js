@@ -10,7 +10,7 @@ function getComponent() {
   // inner - это встраивание между <div> и </div>
   // lodash - библиотека для работы с массивами.
   // npx webpack для старта сборки.
-  element.innerHTML = join([helloString, "webpack"], " ");
+  element.innerHTML = join([helloString, `webpack ${helloString}`], " ");
 
   return element;
 }
