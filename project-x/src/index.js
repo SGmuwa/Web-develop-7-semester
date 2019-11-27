@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import {join} from 'lodash';
 import {getCounter as getCounterFunction, hello as helloString} from './getCounter'
 
 function getComponent() {
@@ -8,7 +8,7 @@ function getComponent() {
 	// inner - это встраивание между <div> и </div>
 	// lodash - библиотека для работы с массивами.
 	// npx webpack для старта сборки.
-	element.innerHTML = _.join([helloString, 'webpack'], ' ');
+	element.innerHTML = join([helloString, 'webpack'], ' ');
   
 	return element;
 }
