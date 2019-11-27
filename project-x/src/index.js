@@ -17,9 +17,14 @@ function getComponent() {
 	const element = document.createElement('button');
 	element.innerText = '0';
 	//element.onclick((that) => that.innerText + 1);
-	element.onclick = (event) => {
-		event.target.innerText++;
-	}
+
+	//element.onclick = (event) => {
+	//	event.target.innerText++;
+	//}
+
+	element.addEventListener('click', event => event.target.innerText++);
+	element.addEventListener('click', event => console.log(event.target.innerText));
+
 	return element;
   }
   document.body.appendChild(getCounter());
