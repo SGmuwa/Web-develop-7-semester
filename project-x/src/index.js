@@ -14,18 +14,32 @@ function getComponent() {
   document.body.appendChild(getComponent());
 
   function getCounter() {
-	const element = document.createElement('button');
-	element.innerText = '0';
-	//element.onclick((that) => that.innerText + 1);
+	const elementDiv = document.createElement('div');
 
-	//element.onclick = (event) => {
-	//	event.target.innerText++;
-	//}
+	const elementButtonCounter = document.createElement('button');
+	elementButtonCounter.innerText = '0';
+	
+	const elementButtonConsole = document.createElement('button');
+	elementButtonConsole.innerText = 'on';
 
-	element.addEventListener('click', event => event.target.innerText++);
-	element.addEventListener('click', event => console.log(event.target.innerText));
+	elementDiv.appendChild(elementButtonCounter);
+	elementDiv.appendChild(elementButtonConsole);
 
-	return element;
+	elementButtonCounter.addEventListener('click', event => event.target.innerText++);
+	const loger = event => console.log(event.target.innerText);
+	elementButtonCounter.addEventListener('click', loger);
+
+	elementButtonConsole.addEventListener('click', () => {
+		if(elementButtonConsole.innerText == 'on') {
+			elementButtonCounter.removeEventListener('click', loger);
+			elementButtonConsole.innerText = 'off';
+		} else {
+			elementButtonCounter.addEventListener('click', loger);
+			elementButtonConsole.innerText = 'on';
+		}
+	});
+
+	return elementDiv;
   }
   document.body.appendChild(getCounter());
   
