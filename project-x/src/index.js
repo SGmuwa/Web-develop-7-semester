@@ -22,6 +22,7 @@ function getImage() {
   element.src = svgImage;
   element.style.height = "50px";
   element.style.width = "50px";
+  element.style.margin = "30px";
   return element;
 }
 
