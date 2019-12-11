@@ -10,5 +10,13 @@ module.exports = {
   },
   // devtool помогает отслеживать ошибки выполнения с помощью F12.
   devtool: "inline-source-map",
-  plugins: [new packlogin({ template: "./index.html" })]
+  plugins: [new packlogin({ template: "./index.html" })],
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: "file-loader"
+      }
+    ]
+  }
 };
